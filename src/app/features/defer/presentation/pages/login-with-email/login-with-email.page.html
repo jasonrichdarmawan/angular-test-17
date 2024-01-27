@@ -1,0 +1,27 @@
+<p>login-with-email works!</p>
+
+<p>Disclaimer: the goal is to demonstrate that this page will not fetch login-with-email-password-input or login-with-email-register-detail unless the buttons below were clicked once</p>
+
+<ng-container [ngSwitch]="render">
+    <ng-container *ngSwitchCase="'initial'">
+        <button (click)="render = 'login-with-email-password-input'">Continue to Login With Email Password Input Component</button><br>
+        <button (click)="render = 'login-with-email-register-detail'">Continue to Login With Email Register Detail Component</button><br>
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'login-with-email-password-input'">
+        @defer ( when render === "login-with-email-password-input" ) {
+            <app-login-with-email-password-input
+                (back)="render = 'initial'">
+            </app-login-with-email-password-input>
+        }
+    </ng-container>
+
+    <ng-container *ngSwitchCase="'login-with-email-register-detail'">
+        @defer ( when render === "login-with-email-register-detail") {
+            <app-login-with-email-register-detail
+                (back)="render = 'initial'">
+            </app-login-with-email-register-detail>
+        }
+    </ng-container>
+
+</ng-container>
