@@ -4,13 +4,26 @@
 
 <ng-container [ngSwitch]="render">
     <ng-container *ngSwitchCase="'initial'">
-        <button (click)="render = 'login-with-email-password-input'">Continue to Login With Email Password Input Component</button><br>
-        <button (click)="render = 'login-with-email-register-detail'">Continue to Login With Email Register Detail Component</button><br>
+        <p>Email: {{ emailFormControl.value }}</p>
+        <input [formControl]="emailFormControl"><br>
+        @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+            <p>Please enter a valid email address</p>
+        }
+        @if (emailFormControl.hasError('required') && emailFormControl.dirty) {
+            <p>Email is <strong>required</strong></p>
+        }
+        <button
+            [disabled]="!emailFormControl.valid"
+            (click)="render = 'login-with-email-password-input'">Continue to Login With Email Password Input Component</button><br>
+        <button
+            [disabled]="!emailFormControl.valid"
+            (click)="render = 'login-with-email-register-detail'">Continue to Login With Email Register Detail Component</button><br>
     </ng-container>
 
     <ng-container *ngSwitchCase="'login-with-email-password-input'">
         @defer ( when render === "login-with-email-password-input" ) {
             <app-login-with-email-password-input
+                [email]="emailFormControl.value"
                 (back)="render = 'initial'">
             </app-login-with-email-password-input>
         }
@@ -19,6 +32,7 @@
     <ng-container *ngSwitchCase="'login-with-email-register-detail'">
         @defer ( when render === "login-with-email-register-detail") {
             <app-login-with-email-register-detail
+                [email]="emailFormControl.value"
                 (back)="render = 'initial'">
             </app-login-with-email-register-detail>
         }
