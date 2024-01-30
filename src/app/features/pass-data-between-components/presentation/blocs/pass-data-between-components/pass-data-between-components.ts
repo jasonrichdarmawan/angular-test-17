@@ -1,0 +1,1 @@
+export type PassDataBetweenComponentsRenderState = "initial" | "b" | "c";

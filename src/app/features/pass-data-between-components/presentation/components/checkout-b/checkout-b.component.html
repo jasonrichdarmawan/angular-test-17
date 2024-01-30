@@ -1,0 +1,6 @@
+<p>checkout-b works!</p>
+<button (click)="backClicked.emit();">back</button>
+<div style="display: flex; gap: 1rem;">
+    <button (click)="bClicked.emit(1); updateRender.emit('c')">1</button>
+    <button (click)="bClicked.emit(2); updateRender.emit('c')">2</button>
+</div>

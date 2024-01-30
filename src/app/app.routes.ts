@@ -15,4 +15,8 @@ export const routes: Routes = [
         path: 'defer',
         loadChildren: () => import("./features/defer/defer.module").then(m => m.DeferModule),
     },
+    {
+        path: 'pass-data-between-components',
+        loadChildren: () => import("./features/pass-data-between-components/pass-data-between-components.module").then(m => m.PassDataBetweenComponentsModule),
+    },
 ];

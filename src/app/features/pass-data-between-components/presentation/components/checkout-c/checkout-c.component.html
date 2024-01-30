@@ -1,0 +1,7 @@
+<p>checkout-c works!</p>
+<button (click)="backClicked.emit();">back</button>
+<p>data B: {{ dataB }}</p>
+<div style="display: flex; gap: 1rem;">
+    <button (click)="updateDataB.emit(dataB); updateDataC.emit(1); updateRender.emit('initial')">1</button>
+    <button (click)="updateDataB.emit(dataB); updateDataC.emit(2); updateRender.emit('initial')">2</button>
+</div>
