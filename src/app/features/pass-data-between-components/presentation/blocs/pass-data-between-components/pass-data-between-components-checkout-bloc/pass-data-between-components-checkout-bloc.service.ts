@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class PassDataBetweenComponentsStateService {
+export class PassDataBetweenComponentsCheckoutBlocService {
   dataB: number;
+  tempDataB?: number;
   dataC: number;
 
   constructor() {
