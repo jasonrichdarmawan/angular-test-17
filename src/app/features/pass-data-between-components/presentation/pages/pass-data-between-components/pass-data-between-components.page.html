@@ -1,18 +1,2 @@
 <p>pass-data-between-components works!</p>
-<ng-container [ngSwitch]="render">
-    <ng-container *ngSwitchCase="'initial'">
-        <app-checkout-a [dataB]="checkoutBloc.dataB" [dataC]="checkoutBloc.dataC" (updateRender)="render = $event"></app-checkout-a>
-    </ng-container>
-    <ng-container *ngSwitchCase="'b'">
-        @defer {
-        <app-checkout-b (updateRender)="render = $event" (backClicked)="checkoutBloc.tempDataB = undefined; render = 'initial';"
-            (bClicked)="checkoutBloc.tempDataB= $event"></app-checkout-b>
-        }
-    </ng-container>
-    <ng-container *ngSwitchCase="'c'">
-        @defer {
-        <app-checkout-c [dataB]="checkoutBloc.tempDataB!" (backClicked)="render = 'b'" (updateDataB)="checkoutBloc.dataB = $event"
-            (updateDataC)="checkoutBloc.dataC = $event" (updateRender)="render = $event"></app-checkout-c>
-        }
-    </ng-container>
-</ng-container>
+<app-checkout-selection></app-checkout-selection>

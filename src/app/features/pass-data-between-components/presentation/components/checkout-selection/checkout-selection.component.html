@@ -1,0 +1,18 @@
+<p>checkout-selection works!</p>
+<ng-container [ngSwitch]="checkoutSelectionBloc.render">
+    <ng-container *ngSwitchCase="'initial'">
+        <app-checkout-a [dataB]="checkoutSelectionBloc.dataB" [dataC]="checkoutSelectionBloc.dataC" (updateRender)="checkoutSelectionBloc.render = $event"></app-checkout-a>
+    </ng-container>
+    <ng-container *ngSwitchCase="'b'">
+        @defer {
+        <app-checkout-b (updateRender)="checkoutSelectionBloc.render = $event" (backClicked)="checkoutSelectionBloc.tempDataB = undefined; checkoutSelectionBloc.render = 'initial';"
+            (bClicked)="checkoutSelectionBloc.tempDataB= $event"></app-checkout-b>
+        }
+    </ng-container>
+    <ng-container *ngSwitchCase="'c'">
+        @defer {
+        <app-checkout-c [dataB]="checkoutSelectionBloc.tempDataB!" (backClicked)="checkoutSelectionBloc.render = 'b'" (updateDataB)="checkoutSelectionBloc.dataB = $event"
+            (updateDataC)="checkoutSelectionBloc.dataC = $event" (updateRender)="checkoutSelectionBloc.render = $event"></app-checkout-c>
+        }
+    </ng-container>
+</ng-container>

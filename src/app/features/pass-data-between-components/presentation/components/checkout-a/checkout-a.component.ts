@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { PassDataBetweenComponentsRenderState } from '../../blocs/pass-data-between-components/pass-data-between-components';
+import { CheckoutSelectionBlocRenderType } from '../../blocs/checkout-selection-bloc/checkout-selection-bloc-render-type';
 
 @Component({
   selector: 'app-checkout-a',
@@ -11,10 +11,10 @@ import { PassDataBetweenComponentsRenderState } from '../../blocs/pass-data-betw
 export class CheckoutAComponent {
   @Input({required: true}) dataB!: number;
   @Input({required: true}) dataC!: number;
-  @Output() updateRender: EventEmitter<PassDataBetweenComponentsRenderState>;
+  @Output() updateRender: EventEmitter<CheckoutSelectionBlocRenderType>;
 
   constructor(
   ) {
-    this.updateRender = new EventEmitter<PassDataBetweenComponentsRenderState>();
+    this.updateRender = new EventEmitter<CheckoutSelectionBlocRenderType>();
   }
 }

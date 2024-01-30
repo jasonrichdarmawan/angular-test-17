@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { PassDataBetweenComponentsRenderState } from '../../blocs/pass-data-between-components/pass-data-between-components';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { CheckoutSelectionBlocRenderType } from '../../blocs/checkout-selection-bloc/checkout-selection-bloc-render-type';
 
 @Component({
   selector: 'app-checkout-b',
@@ -11,12 +11,12 @@ import { PassDataBetweenComponentsRenderState } from '../../blocs/pass-data-betw
 export class CheckoutBComponent {
   @Output() backClicked: EventEmitter<void>;
   @Output() bClicked: EventEmitter<number>;
-  @Output() updateRender: EventEmitter<PassDataBetweenComponentsRenderState>;
+  @Output() updateRender: EventEmitter<CheckoutSelectionBlocRenderType>;
 
   constructor(
   ) {
     this.backClicked = new EventEmitter<void>();
     this.bClicked = new EventEmitter<number>();
-    this.updateRender = new EventEmitter<PassDataBetweenComponentsRenderState>();
+    this.updateRender = new EventEmitter<CheckoutSelectionBlocRenderType>();
   }
 }
