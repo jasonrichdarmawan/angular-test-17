@@ -1,18 +1,18 @@
 <p>checkout-selection works!</p>
-<ng-container [ngSwitch]="checkoutSelectionBloc.render">
+<ng-container [ngSwitch]="render">
     <ng-container *ngSwitchCase="'initial'">
-        <app-checkout-a [dataB]="checkoutSelectionBloc.dataB" [dataC]="checkoutSelectionBloc.dataC" (updateRender)="checkoutSelectionBloc.render = $event"></app-checkout-a>
+        <app-checkout-a [dataB]="dataB" [dataC]="dataC" (updateRender)="render = $event"></app-checkout-a>
     </ng-container>
     <ng-container *ngSwitchCase="'b'">
         @defer {
-        <app-checkout-b (updateRender)="checkoutSelectionBloc.render = $event" (backClicked)="checkoutSelectionBloc.tempDataB = undefined; checkoutSelectionBloc.render = 'initial';"
-            (bClicked)="checkoutSelectionBloc.tempDataB= $event"></app-checkout-b>
+        <app-checkout-b (updateRender)="render = $event" (backClicked)="tempDataB = undefined; render = 'initial';"
+            (bClicked)="tempDataB= $event"></app-checkout-b>
         }
     </ng-container>
     <ng-container *ngSwitchCase="'c'">
         @defer {
-        <app-checkout-c [dataB]="checkoutSelectionBloc.tempDataB!" (backClicked)="checkoutSelectionBloc.render = 'b'" (updateDataB)="checkoutSelectionBloc.dataB = $event"
-            (updateDataC)="checkoutSelectionBloc.dataC = $event" (updateRender)="checkoutSelectionBloc.render = $event"></app-checkout-c>
+        <app-checkout-c [dataB]="tempDataB!" (backClicked)="render = 'b'" (updateDataB)="dataB = $event"
+            (updateDataC)="dataC = $event" (updateRender)="render = $event"></app-checkout-c>
         }
     </ng-container>
 </ng-container>

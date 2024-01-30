@@ -1,1 +1,0 @@
-export type CheckoutSelectionBlocRenderType = "initial" | "b" | "c";
