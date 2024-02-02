@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CheckoutSelectionBlocRenderType } from '../../blocs/checkout-selection-bloc/checkout-selection-bloc-render-type';
+import { CheckoutSelectionRenderType } from '../checkout-selection/checkout-selection-render-type';
 
 @Component({
   selector: 'app-checkout-a',
@@ -11,10 +11,10 @@ import { CheckoutSelectionBlocRenderType } from '../../blocs/checkout-selection-
 export class CheckoutAComponent {
   @Input({required: true}) dataB!: number;
   @Input({required: true}) dataC!: number;
-  @Output() updateRender: EventEmitter<CheckoutSelectionBlocRenderType>;
+  @Output() updateRender: EventEmitter<CheckoutSelectionRenderType>;
 
   constructor(
   ) {
-    this.updateRender = new EventEmitter<CheckoutSelectionBlocRenderType>();
+    this.updateRender = new EventEmitter<CheckoutSelectionRenderType>();
   }
 }

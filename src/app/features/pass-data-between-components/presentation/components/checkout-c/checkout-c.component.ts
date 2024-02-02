@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { CheckoutSelectionBlocRenderType } from '../../blocs/checkout-selection-bloc/checkout-selection-bloc-render-type';
+import { CheckoutSelectionRenderType } from '../checkout-selection/checkout-selection-render-type';
 
 @Component({
   selector: 'app-checkout-c',
@@ -13,13 +13,13 @@ export class CheckoutCComponent {
   @Output() backClicked: EventEmitter<void>;
   @Output() updateDataB: EventEmitter<number>;
   @Output() updateDataC: EventEmitter<number>;
-  @Output() updateRender: EventEmitter<CheckoutSelectionBlocRenderType>;
+  @Output() updateRender: EventEmitter<CheckoutSelectionRenderType>;
 
   constructor() {
     this.backClicked = new EventEmitter<void>();
     this.updateDataB = new EventEmitter<number>();
     this.updateDataC = new EventEmitter<number>();
-    this.updateRender = new EventEmitter<CheckoutSelectionBlocRenderType>();
+    this.updateRender = new EventEmitter<CheckoutSelectionRenderType>();
   }
 
 }
